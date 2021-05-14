@@ -1,0 +1,26 @@
+
+  <app-well *ngIf="showChild" [sourceKey]="key" (addWell)="catchEvent($event)" ></app-well>
+<div class="container">
+    <h2>Wells-list Table</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>SourceKey</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let wells of wellsInfo">
+          <td>{{wells.name}}</td>
+          <td [ngStyle]="{'background-color':wells.type === 'rls' ? 'green' : 'pink' }"
+              [ngClass]="{'text-success':wells.type === 'rls'}"                
+           >{{wells.type }}</td>
+         <td >  <a  #sourceKey  (click)="passKey(wells.sourceKey)">{{wells.sourceKey}}</a></td>
+         
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+

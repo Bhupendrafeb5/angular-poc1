@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Users Table</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.age}}</td>
+         
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+<hr>
+<div>
+    <!-- <ng-template [ngIf]="flag; then status='ON' else status='OFF'">  <p>Response is {{status}}</p> </ng-template> -->
+
+    <div *ngIf="flag; else elseBlock">This is some info</div>
+    <ng-template #elseBlock>Info is missing</ng-template>
+
+
+</div>
+<button class="btn btn-primary" (click)="toggle()">Toggle</button>
